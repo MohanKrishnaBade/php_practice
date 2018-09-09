@@ -11,9 +11,9 @@
  */
 class ArrayFunctions
 {
-    public function add(array $array)
+    public function add(array $array): int
     {
-        echo array_reduce($array, function ($carry, $item) {
+        return array_reduce($array, function ($carry, $item) {
 
             return $carry + $item;
 
@@ -23,10 +23,11 @@ class ArrayFunctions
 
     /**
      * @param array $array
+     * @return array
      */
-    public function getLargestNumber(array $array)
+    public function getLargestNumber(array $array): array
     {
-        echo array_reduce($array, function ($carry, $item) {
+      return array_reduce($array, function ($carry, $item) {
 
             return $item > $carry ? $item : $carry;
 
@@ -37,10 +38,11 @@ class ArrayFunctions
     /**
      * @param array $array
      * @param string $piece
+     * @return array
      */
-    public function arrayToString(array $array, string $piece)
+    public function arrayToString(array $array, string $piece): array
     {
-        echo array_reduce($array, function ($carry, $item) use ($piece) {
+        return array_reduce($array, function ($carry, $item) use ($piece) {
 
             return !$carry ? $item : $carry . $piece . $item;
 
@@ -111,26 +113,26 @@ $multidimensionalArray =
 
 
 if ($array4):
-    echo "mohn";
+    return "mohn";
 endif;
 
 $associativeArrayKeys = array_merge(array_column($multidimensionalArray, 0), array_column($multidimensionalArray, 1));
-var_dump($associativeArrayKeys);
+//var_dump($associativeArrayKeys);
 
 
 (function ($value) {
-    echo $value;
+  return $value;
 })('mohan');
 
 
 $email = 'mohanKrishna@example.com';
 list($user, $domain) = explode('@', $email);
 
-echo $user;
-$classInstantiation = new ArrayFunctions();
-$classInstantiation->add($array);
-$classInstantiation->getLargestNumber($array);
-$classInstantiation->arrayToString($array, '+');
-$classInstantiation->keyCaseChange($array);
-var_dump($classInstantiation->whiteListArrayKeys($array, [3, 4, 8]));
-var_dump(array_merge($array, $array2, $array3, $array4));
+//echo $user;
+//$classInstantiation = new ArrayFunctions();
+//$classInstantiation->add($array);
+//$classInstantiation->getLargestNumber($array);
+//$classInstantiation->arrayToString($array, '+');
+//$classInstantiation->keyCaseChange($array);
+//var_dump($classInstantiation->whiteListArrayKeys($array, [3, 4, 8]));
+//var_dump(array_merge($array, $array2, $array3, $array4));
