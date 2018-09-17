@@ -424,4 +424,42 @@ function strRotation(string $str1, string $str2)
     }
 }
 
+
+/**
+ * @param $load
+ * @param $colMult
+ * @param $levCount
+ */
+function makeBTree($load, $colMult, $levCount){
+    $exCol=$colMult;
+    if($load<=$colMult){
+        $exCol=$load;
+    } if($load>0) {echo "Load: $load ";} else {echo "Load: 0 ";}
+    echo "Level: $levCount ";
+    echo "Columns: ";
+
+    for($i=1;$i<=$exCol; $i++){
+
+    }
+
+    if($i<=64) {
+        echo "<font color='violet'>".($exCol)." candidate for pairing if count matches with TEAM B</font> \n";
+    } else {
+        $limiter = ($i)-64;
+        echo "<font color='orange'>$i</font> - <font color='black'>64</font> = 
+        <font color='blue'>$limiter auto-flushout</font> \n";
+    }
+
+    $load -=$colMult; if($load>0) {echo "Load: $load ";} else {echo "Load: 0";}
+    echo "<br />\n";
+
+    if($load>=1){
+        makeBTree($load,$colMult*2, $levCount+1);
+    }
+}
+
+makeBTree(100000,1,1);
+
+
+
 ?>
